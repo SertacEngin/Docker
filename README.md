@@ -138,7 +138,7 @@ Docker registries:
 A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on 
 Docker Hub by default. You can even run your own private registry. Docker hub is the place where we share our Docker images with the external 
 world.
-What is the difference between GitHub and Dockerhub?
+<p>What is the difference between GitHub and Dockerhub?</p>
 GitHub is a version control platform where we store our source code.
 Dockerhub is a version control platform for our Docker images.
 
