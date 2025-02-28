@@ -160,4 +160,43 @@ a Dockerfile with a simple syntax for defining the steps needed to create the im
 layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of 
 what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
 
+Install Docker: 
+Let’s install Docker on our Ubuntu EC2 instance. First we do “sudo apt update”. Then “sudo apt 
+install docker.io -y”.
+“-y” tells that we agree with it. Otherwise it will usk us if we agree or not.
+ (if we want to install Docker on our own PC, we can install Docker Desktop.)
+We verify if Docker is working with the command “sudo systemctl status docker”. Then it says 
+docker is active which means it is running.
+If we execute “docker run hello-world”, we get a permission error because we installed docker 
+using sudo. Docker daemon runs with the root user. This is one of the disadvantages of Docker. 
+And the other one is that it is a monolithic process.
+So we should add ubuntu user to the Docker group with “sudo usermod -aG docker ubuntu”. Even 
+after this we get an error. We have to log out of our EC2 instance and then ssh into it again. 
+Now if we execute “docker run hello-world”, we see that we can run it. 
+We had to log out and log in back because our user profile isn’t activated until we add it to 
+a group.
 
+Now Docker is up and running on our EC2 instance.
+We clone our repository into our instance with “git clone url-to-the-repo”.
+In the first line of our Dockerfile, “FROM ubuntu:latest” means that we are getting the base 
+image for our container. We are getting this from a public registry.
+Let’s execute this.
+And we build our first Docker image with “docker build -t Sertac/my-first-docker-image:latest 
+.”.
+“.” at the represents the current directory.
+“-t” stands for tag and we rite our tag after that so we can distinguish this image from other 
+images.
+Now let’s execute our image and see how the application runs.
+“docker run -it Sertac/my-first-docker-image:latest” will run the image.
+And we got the ourput “Hello World!”. This is just a command line application which is why we 
+got this output. If this was a web application, the application would start running on this 
+EC2 instance and we could access it through our EC2 instance or our browser.
+
+Now we want to share this application with other people.
+For that we have to loging using our credentials that we used to log into Docker hub.
+
+And we push our image to a repo in our Docker hub with this “docker push sertacengin/my-first-
+docker-image:latest”. “sertacengin” is our user name in Docker hub.
+
+“docker images” command shows the images we have on our machine.
+In this repo in Docker hub, it gives us a command to pull this repo.
