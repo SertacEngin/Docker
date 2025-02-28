@@ -118,23 +118,23 @@ Apart from Docker containers being light in weight, another advantage is that th
 lot. Instead of doing 100 things manually, one can write a dockerfile that contains the application. So anyone who executes this docker image, 
 everything is created out of the box. So Docker containers also help us with the efficiency.
 
-Understanding the terminology (Inspired from Docker Docs)
+Understanding the terminology (Taken from Docker Docs)
 
-Docker daemon
+Docker daemon:
 The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A 
 daemon can also communicate with other daemons to manage Docker services.
 
-Docker client
+Docker client:
 The Docker client (docker) is the primary way that many Docker users interact with Docker. When you use commands such as docker run, the client 
 sends these commands to dockerd, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more 
 than one daemon.
 
-Docker Desktop
+Docker Desktop:
 Docker Desktop is an easy-to-install application for your Mac, Windows or Linux environment that enables you to build and share containerized 
 applications and microservices. Docker Desktop includes the Docker daemon (dockerd), the Docker client (docker), Docker Compose, Docker Content 
 Trust, Kubernetes, and Credential Helper. For more information, see Docker Desktop.
 
-Docker registries
+Docker registries:
 A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on 
 Docker Hub by default. You can even run your own private registry.
 
@@ -144,10 +144,10 @@ command, your image is pushed to your configured registry. Docker objects
 When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief 
 overview of some of those objects.
 
-Dockerfile
+Dockerfile:
 Dockerfile is a file where you provide the steps to build your Docker Image.
 
-Images
+Images:
 An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some 
 additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your 
 application, as well as the configuration details needed to make your application run.
