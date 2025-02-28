@@ -200,3 +200,16 @@ docker-image:latest”. “sertacengin” is our user name in Docker hub.
 
 “docker images” command shows the images we have on our machine.
 In this repo in Docker hub, it gives us a command to pull this repo.
+
+Some extra notes for Docker installation:
+A easy way to verify your Docker installation is by running the below command: “docker run 
+hello-world”.
+We use the this command to verify if the docker daemon is actually started and active: “sudo 
+systemctl status docker”.
+If docker isn’t running we can start the daemon using this command: “sudo systemctl start 
+docker”.
+To grant access to your user to run the docker command, you should add the user to the Docker 
+Linux group. Docker group is create by default when docker is installed: “sudo usermod -aG 
+docker ubuntu”. ubuntu here is the name of the user. NOTE: We need to logout and login back 
+for the changes to be reflected.
+
