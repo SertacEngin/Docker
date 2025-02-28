@@ -160,3 +160,4 @@ a Dockerfile with a simple syntax for defining the steps needed to create the im
 layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of 
 what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
 
+
