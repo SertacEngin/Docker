@@ -1,5 +1,11 @@
 # Docker
 
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one 
+computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything 
+needed to run an application: code, runtime, system tools, system libraries and settings. Simply, a container is a bundle of Application, Application libraries required to run your application and the minimum system dependencies.
+
+![1](https://github.com/user-attachments/assets/b4a656ac-87d1-49e4-8134-3319ae99b027)
+
 If we consider VMs an advanced model of servers than we can consider containers an advanced model of VMs. One problem we might have with VMs is 
 that we might not use its full resources like CPU, RAM, hardware etc.. When we have 1 VM it might be fine but when we have 100s of them it is a 
 big problem.
