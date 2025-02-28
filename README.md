@@ -57,10 +57,12 @@ Docker is dependent on docker engine which is a single point of failure. If the 
 will stop working.
 Buildah is used to solve this problem. Buildah works without a running Docker daemon. We can build images as a regular process, not tied to 
 Docker Engine. We can use Buildah for building images on Kubernetes nodes directly (without Docker).
-Buildah doesn’t replace Docker completely — it focuses on building images (not running containers). It’s great for:
-    Security-conscious environments (rootless builds).
-    Kubernetes-focused workflows (especially OpenShift).
-    CI/CD pipelines where you want to avoid Docker daemon dependency.
+
+Buildah doesn’t replace Docker completely — it focuses on building images (not running containers). It’s great for:   
+Security-conscious environments (rootless builds).
+Kubernetes-focused workflows (especially OpenShift).
+CI/CD pipelines where you want to avoid Docker daemon dependency.
+
 The Docker Daemon is a background service (a process) that manages all Docker objects on your system, including containers, images, volumes, 
 networks. It acts as the brains behind Docker, coordinating all the tasks related to building, running, and stopping containers. Without the 
 Docker Daemon, Docker simply doesn't work.
@@ -76,6 +78,7 @@ Docker API: The API that lets other tools (and the CLI itself) communicate with 
 
 Analogy
 Think of Docker Engine as a car:
+
 Part	              Role
 Docker Engine	      The whole car
 Docker Daemon	      The engine (runs the car)
