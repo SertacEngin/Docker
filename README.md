@@ -1,4 +1,4 @@
-# Docker
+# Containerization
 
 A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one 
 computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything 
@@ -90,3 +90,8 @@ Docker Engine	      The whole car
 Docker Daemon	      The engine (runs the car)
 Docker CLI	        The steering wheel (you control the car)
 Docker API	        The electronics (how systems talk to the engine)
+
+#Docker
+Docker is a containerization platform that provides easy way to containerize your applications, which means, using Docker you can build container images, run the images to create containers and also push these containers to container regestries such as DockerHub, Quay.io and so on.
+![1](https://github.com/user-attachments/assets/bb357846-2608-4a7d-829b-3b9d4e97c383)
+
