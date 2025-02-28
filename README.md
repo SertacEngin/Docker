@@ -106,4 +106,5 @@ There are three important things,
     docker run -> runs container from docker images
     docker push -> push the container image to public/private regestries to share the docker images.
 
+![1](https://github.com/user-attachments/assets/21d3b661-9319-455b-852c-5b3f39d6009c)
 
