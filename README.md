@@ -93,5 +93,17 @@ Docker API	        The electronics (how systems talk to the engine)
 
 #Docker
 Docker is a containerization platform that provides easy way to containerize your applications, which means, using Docker you can build container images, run the images to create containers and also push these containers to container regestries such as DockerHub, Quay.io and so on.
+Docker Architecture
 ![1](https://github.com/user-attachments/assets/bb357846-2608-4a7d-829b-3b9d4e97c383)
+
+Docker LifeCycle
+
+We can use the above Image as reference to understand the lifecycle of Docker.
+
+There are three important things,
+
+    docker build -> builds docker images from Dockerfile
+    docker run -> runs container from docker images
+    docker push -> push the container image to public/private regestries to share the docker images.
+
 
