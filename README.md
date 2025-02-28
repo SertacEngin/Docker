@@ -138,9 +138,7 @@ Docker registries:
 A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on 
 Docker Hub by default. You can even run your own private registry. Docker hub is the place where we share our Docker images with the external 
 world.
-<p>What is the difference between GitHub and Dockerhub?</p>
-<p>GitHub is a version control platform where we store our source code.</p>
-<p>Dockerhub is a version control platform for our Docker images.</p>
+<p>What is the difference between GitHub and Dockerhub?<br>GitHub is a version control platform where we store our source code.<br>Dockerhub is a version control platform for our Docker images.
 
 When you use the docker pull or docker run commands, the required images are pulled from your configured registry. When you use the docker push 
 command, your image is pushed to your configured registry.
