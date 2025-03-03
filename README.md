@@ -213,3 +213,48 @@ Linux group. Docker group is create by default when docker is installed: “sudo
 docker ubuntu”. ubuntu here is the name of the user. NOTE: We need to logout and login back 
 for the changes to be reflected.
 
+We will deploy our first Django web application as a Docker container.
+Regardless the complexity of our application, the steps of deploying are pretty much the same. The flow of the steps if the same.
+
+Whenever we have a Django application, we need to install Python and Django first.
+After Django, we install Django admin. It is similar to Ansible galaxy. Django admin is used to create the skeleton.
+settings.py contains all configuration settings for your Django project (database settings, installed apps, middleware, etc.).
+url.py Contains URL patterns for routing requests to the right views. It is responsible for serving the content.
+manage.py is the utility script to interact with the project (runserver, migrations, etc.).
+As a DevOps engineer we need to have a basic understanding of app development.
+“django-admin startproject myproject” automatically creates a folder (myproject) with key files like manage.py, urls.py, settings.py, asgi.py, wsgi.py etc. We create urls.py 
+manually.
+We create an app inside our project using “python manage.py startapp myapp”.
+Notice urls.py is NOT created for apps automatically. You have to manually create it for your app if needed.
+
+In views.py we write our actual code. In our file we have a python function called index. It renders the hmtl file. We plae this html file in the folder templates. Our content is served from there.
+
+Before Docker was being used, the process was like this: the developer downloads the github repo, or they download the artifact, they create the requirements in the 
+requirements.txt file. But in some cases there were 100s of requirements. The developers used to install all of them. But the problem is that the QE (quality engineer) might be 
+using a Windows machine, Linux, or MacOS. They might be using a specific distribution of Linux where this commands don’t work. This was a typical problem back in the days. The 
+developers used to say that the app works fine, but QE says that the app doesn’t work. This problem was solved by Docker containers. Because we are bundling everything in the 
+package for the app to run. Anyone who want to run the app, they just need to execute “docker build” and “docker run”. They just need to have Docker installed on their machine. 
+If they use containers it doesn’t matter what operating system they use. Because Docker runs on a Virtual machine or on a physical server. It consumes the resources of the host 
+operating systems and the minimal dependencies inside the container. So it doesn’t matter what is installed on the underlying operating system. A container has the system 
+dependencies in it which is required to run the application. If our app requires python 3 to run, the container has that it in along with the source code and the binaries. Only 
+if it needs to consume something from the Kernel, or make some system calls, then it uses the resources of the underlying OS. This whole process is a solution to a critical 
+problem in app development.
+
+Now let’s see the roles and responsibilities of DevOps engineers. DevOps engineers will get a task of containerizing the Django applcation. We should be able to analyze the 
+application. A DevOps engineer should have an idea how a Python-Django application works and how a node.js application works.
+First thing to do is to start writing a Dockerfile. First, we should choose a base image.
+Then we can have a convention in the organization and choose the name “app” for our folder for source code. Then we have this line: “WORKDIR /app”. This is our work directory. 
+Then we should copy our requirements file in our work dirctory → “COPY requirements.txt /app”. requirements.txt is the file where we have our Python dependencies.
+Then we copy the source code into our work directory → “COPY devops /app”.
+The dependencies + the source code we form the bundle (or we can call it binary) of our application.
+After these we should run some commands.
+“RUN python3 -m venv venv1 && \
+source venv1/bin/activate && \
+pip install --no-cache-dir -r requirements.txt”. These are for our app to run.
+Then we have ENTRYPOINT [“python3”].
+                       CMD [“manage.py”, “runserver”, “0.0.0.0:8000”]
+What is the difference between entrypoint and cmd in a Docker container? Both of these can be used to execute our start command. The difference is that the entrypoint is 
+something we cannot change. In our case they cannot overwrite “python” in the docker image. Whereas cmd is something configurable. 
+We can also write “python3” in the cmd but then people can change the executable itself.
+For example we write “0.0.0.0:8000” in the cmd because we want people to be able to change it. Because on their system the port 8000 might be used for something else.
+So we only write our main executables in the entrypoint. In our case we don’t want people to change “python3” because this is a python application and it should remain the same.
