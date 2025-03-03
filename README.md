@@ -253,6 +253,7 @@ source venv1/bin/activate && \
 pip install --no-cache-dir -r requirements.txt”. These are for our app to run.
 Then we have ENTRYPOINT [“python3”].
                        CMD [“manage.py”, “runserver”, “0.0.0.0:8000”]
+
 What is the difference between entrypoint and cmd in a Docker container? Both of these can be used to execute our start command. The difference is that the entrypoint is 
 something we cannot change. In our case they cannot overwrite “python” in the docker image. Whereas cmd is something configurable. 
 We can also write “python3” in the cmd but then people can change the executable itself.
